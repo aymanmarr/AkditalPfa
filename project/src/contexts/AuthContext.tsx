@@ -32,30 +32,31 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     let mockUser: User;
 
-    if (email.startsWith('patient')) {
-      mockUser = {
-        id: '1',
-        email,
-        role: 'patient',
-        name: 'John Patient',
-      };
-    } else if (email.startsWith('doctor')) {
-      mockUser = {
-        id: '2',
-        email,
-        role: 'doctor',
-        name: 'Dr. Smith',
-      };
-    } else if (email.startsWith('assistant')) {
-      mockUser = {
-        id: '3',
-        email,
-        role: 'assistant',
-        name: 'Sarah Assistant',
-      };
-    } else {
-      throw new Error('Invalid user type');
-    }
+if (email.includes('@patient')) {
+  mockUser = {
+    id: '1',
+    email,
+    role: 'patient',
+    name: 'John Patient',
+  };
+} else if (email.includes('@doctor')) {
+  mockUser = {
+    id: '2',
+    email,
+    role: 'doctor',
+    name: 'Dr. Smith',
+  };
+} else if (email.includes('@assistant')) {
+  mockUser = {
+    id: '3',
+    email,
+    role: 'assistant',
+    name: 'Sarah Assistant',
+  };
+} else {
+  throw new Error('Invalid user type');
+}
+
 
     setUser(mockUser);
     localStorage.setItem('user', JSON.stringify(mockUser));

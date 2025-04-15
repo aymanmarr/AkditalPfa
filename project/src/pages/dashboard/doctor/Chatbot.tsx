@@ -51,7 +51,7 @@ export function Chatbot() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('  https://c3ce-196-74-52-186.ngrok-free.app/diagnostiquer-llm', {
+      const response = await fetch(' https://06ad-196-89-57-139.ngrok-free.app/diagnostiquer-llm', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: inputValue })

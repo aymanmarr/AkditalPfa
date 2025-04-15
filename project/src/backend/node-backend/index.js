@@ -1,19 +1,12 @@
 const express = require("express");
 const cors = require("cors");
-const fetch = require("node-fetch");
 
 const app = express();
-
-// ✅ Autoriser toutes les origines
-app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type']
-}));
-
+app.use(cors());
 app.use(express.json());
 
-const LOCAL_LLM_ENDPOINT = "http://localhost:1234/v1/chat/completions"; // RESTE EN LOCAL ici
+// 👉 Endpoint local de LM Studio
+const LOCAL_LLM_ENDPOINT = "http://localhost:1234/v1/chat/completions";
 
 app.post("/diagnostiquer-llm", async (req, res) => {
   const userText = req.body.message;
@@ -25,7 +18,7 @@ app.post("/diagnostiquer-llm", async (req, res) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "local-model",
+        model: "local-model", // Laisse ce nom, LM Studio s'en fiche ici
         messages: [
           {
             role: "system",
@@ -52,6 +45,7 @@ app.post("/diagnostiquer-llm", async (req, res) => {
   }
 });
 
+// ✅ Lancer serveur Node.js
 app.listen(5000, () => {
   console.log("✅ Serveur Node.js en ligne sur http://localhost:5000");
 });
