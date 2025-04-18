@@ -12,7 +12,7 @@ export function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      content: "Bonjour, je suis MedAssist, votre assistant médical virtuel basé sur l'IA. Quels symptômes souhaitez-vous décrire ?",
+      content: "Bonjour, je suis AkditalAI, votre assistant médical virtuel basé sur l'IA. Quels symptômes souhaitez-vous décrire ?",
       sender: 'bot',
       timestamp: new Date()
     }
@@ -51,7 +51,7 @@ export function Chatbot() {
     setIsLoading(true);
 
     try {
-      const response = await fetch(' https://06ad-196-89-57-139.ngrok-free.app/diagnostiquer-llm', {
+      const response = await fetch('https://cb5d-160-178-245-156.ngrok-free.app/diagnostiquer-llm', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: inputValue })

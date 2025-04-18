@@ -1,10 +1,12 @@
 import React from 'react';
-import { Bell, Moon, Sun } from 'lucide-react';
+import { Bell, Moon, Sun, MoreVertical } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useAuth } from '../../contexts/AuthContext';
 
 export function TopBar() {
   const { theme, toggleTheme } = useTheme();
+  const navigate = useNavigate();
   const { user } = useAuth();
 
   return (
@@ -18,6 +20,12 @@ export function TopBar() {
           </div>
           
           <div className="flex items-center gap-4">
+            <button
+              onClick={() => navigate('/dashboard/doctor/chatbot')}
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <MoreVertical className="h-5 w-5 text-gray-500 dark:text-gray-300" />
+            </button>
             <button
               className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
               onClick={toggleTheme}

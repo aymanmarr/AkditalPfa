@@ -44,16 +44,7 @@ export function LoginPage() {
           Connexion à votre compte
         </h2>
         
-        {/* Demo accounts info */}
-        <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
-          <p className="font-medium mb-2">Comptes de démonstration :</p>
-          <div className="space-y-1">
-            <p>Patient : patient@example.com</p>
-            <p>Médecin : doctor@example.com</p>
-            <p>Assistant : assistant@example.com</p>
-            <p className="text-xs mt-1">(Mot de passe : 123456)</p>
-          </div>
-        </div>
+        
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -67,7 +58,7 @@ export function LoginPage() {
                 Adresse email
               </label>
               <div className="mt-1">
-                <input
+                <input  
                   id="email"
                   type="email"
                   {...register('email')}
